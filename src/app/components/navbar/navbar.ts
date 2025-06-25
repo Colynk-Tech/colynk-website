@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Button } from '../button/button';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
@@ -10,5 +11,9 @@ import { Button } from '../button/button';
   styleUrl: './navbar.scss'
 })
 export class Navbar {
-
+  constructor(private router: Router) {
+  }
+  public navigateTo(page: string): void {
+    this.router.navigate([`/${page}`]);
+  }
 }

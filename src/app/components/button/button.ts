@@ -15,7 +15,7 @@ export class Button {
   get fontSize() {
     switch (this.size) {
       case 'small':
-        return 'md';
+        return 'sm';
       case 'medium':
         return 'xl';
       case 'large':
