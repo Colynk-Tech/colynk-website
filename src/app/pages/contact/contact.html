@@ -4,63 +4,75 @@
     <p class="text-center text-md font-light">Heb je vragen, opmerkingen of suggesties? Vul het onderstaande formulier in en we nemen zo snel mogelijk contact met je op.</p>
 
     <div class="w-2/3 border border-black rounded-lg p-6 mx-auto mt-8">
-      <form>
-        <div class="relative mb-4">
-          <input
-            type="text"
-            id="name"
-            name="name"
-            placeholder=" "
-            class="peer w-full border-b border-black focus:outline-none p-2 text-black placeholder-transparent"
-          />
-          <label
-            for="name"
-            class="absolute left-2 -top-3 text-gray-500 text-sm transition-all peer-placeholder-shown:top-3
-                                       peer-placeholder-shown:text-base peer-placeholder-shown:text-black peer-focus:-top-3
-                                       peer-focus:text-sm peer-focus:text-black"
-          >
-            Naam
-          </label>
-        </div>
+      @if (!formSent) {
+        <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+          <div class="relative mb-4">
+            <input
+              type="text"
+              id="name"
+              formControlName="name"
+              placeholder=" "
+              class="peer w-full border-b border-black focus:outline-none p-2 text-black placeholder-transparent"
+            />
+            <label
+              for="name"
+              class="absolute left-2 -top-3 text-gray-500 text-sm transition-all peer-placeholder-shown:top-3
+             peer-placeholder-shown:text-base peer-placeholder-shown:text-black peer-focus:-top-3
+             peer-focus:text-sm peer-focus:text-black"
+            >
+              Naam
+            </label>
+          </div>
 
-        <div class="relative mb-10">
-          <input
-            type="email"
-            id="email"
-            name="email"
-            placeholder=" "
-            class="peer w-full border-b border-black focus:outline-none p-2 text-black placeholder-transparent"
-          />
-          <label
-            for="email"
-            class="absolute left-2 -top-3 text-gray-500 text-sm transition-all peer-placeholder-shown:top-3
-                                       peer-placeholder-shown:text-base peer-placeholder-shown:text-black peer-focus:-top-3
-                                       peer-focus:text-sm peer-focus:text-black"
-          >
-            Email
-          </label>
-        </div>
+          <div class="relative mb-10">
+            <input
+              type="email"
+              id="email"
+              formControlName="email"
+              placeholder=" "
+              class="peer w-full border-b border-black focus:outline-none p-2 text-black placeholder-transparent"
+            />
+            <label
+              for="email"
+              class="absolute left-2 -top-3 text-gray-500 text-sm transition-all peer-placeholder-shown:top-3
+             peer-placeholder-shown:text-base peer-placeholder-shown:text-black peer-focus:-top-3
+             peer-focus:text-sm peer-focus:text-black"
+            >
+              Email
+            </label>
+          </div>
 
-        <div class="relative mb-6">
-          <textarea
-            id="message"
-            name="message"
-            rows="4"
-            placeholder=" "
-            class="peer w-full border-b border-black focus:outline-none p-2 text-black placeholder-transparent"
-          ></textarea>
-          <label
-            for="message"
-            class="absolute left-2 -top-3 text-gray-500 text-sm transition-all peer-placeholder-shown:top-3
-                                       peer-placeholder-shown:text-base peer-placeholder-shown:text-black peer-focus:-top-3
-                                       peer-focus:text-sm peer-focus:text-black"
-          >
-            Bericht
-          </label>
-        </div>
+          <div class="relative mb-6">
+    <textarea
+      id="message"
+      formControlName="message"
+      rows="4"
+      placeholder=" "
+      class="peer w-full border-b border-black focus:outline-none p-2 text-black placeholder-transparent"
+    ></textarea>
+            <label
+              for="message"
+              class="absolute left-2 -top-3 text-gray-500 text-sm transition-all peer-placeholder-shown:top-3
+             peer-placeholder-shown:text-base peer-placeholder-shown:text-black peer-focus:-top-3
+             peer-focus:text-sm peer-focus:text-black"
+            >
+              Bericht
+            </label>
+          </div>
 
-        <app-button size="small" rounded="full" color="black" label="Verstuur bericht" class="w-full mt-10"></app-button>
-      </form>
+          <app-button
+            size="small"
+            rounded="full"
+            color="black"
+            label="Verstuur bericht"
+            class="w-full mt-10"
+            type="submit"
+            [disabled]="contactForm.invalid"
+          ></app-button>
+        </form>
+      } @else {
+        <div>Bericht verzonden!</div>
+      }
     </div>
   </div>
 </div>

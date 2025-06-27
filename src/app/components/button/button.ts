@@ -11,6 +11,8 @@ export class Button {
   @Input() color: 'black' | 'clear' = 'clear';
   @Input() label: string = 'Button';
   @Input() rounded: 'lg' | 'full' = 'lg';
+  @Input() disabled?: boolean = false;
+  @Input() type: 'button' | 'submit' = 'button';
 
   get fontSize() {
     switch (this.size) {
