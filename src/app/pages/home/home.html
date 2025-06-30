@@ -1,12 +1,13 @@
-<div class="custom-container flex space-between h-screen relative">
-  <div class="text-8xl -gap-y-[34px] mt-[20%]">
+<div class="custom-container md:grid grid-cols-2 space-between h-screen">
+  <img src="../../../assets/Globe.svg" class="sm:h-[504px] w-full ml-auto mr-5 md:hidden block" alt="Globe Image">
+  <div class="2xl:text-8xl lg:text-6xl text-5xl -gap-y-[34px] md:mt-[20%] min-w-[405px]! 2xl:min-w-[648px]!">
     <div>Code Smart.</div>
     <div>Design Sharp.</div>
     <div>Launch Strong.</div>
-    <div class="-mt-10">
-      <app-button size="large" color="black" rounded="full" label="Neem contact op" (click)="navigateTo('contact')"></app-button>
-      <app-button size="large" color="clear" rounded="full" label="Ontdek mogelijkheden" class="ml-10"></app-button>
+    <div class="2xl:-mt-10 sm:mt-[10px] mt-[22px]">
+      <app-button size="large" color="black" rounded="full" label="Neem contact op" (click)="navigateTo('contact')" class="mr-[10px]"></app-button>
+      <app-button size="large" color="clear" rounded="full" label="Ontdek mogelijkheden" class=""></app-button>
     </div>
   </div>
-  <img src="../../../assets/Globe.svg" class="h-[504px] w-[530px] right-0 absolute mt-20 mr-20" alt="Globe Image">
+  <img src="../../../assets/Globe.svg" class="max-h-[504px] max-w-[530px] w-[70%] ml-auto mt-20 2xl:mr-20 mr-5 hidden md:block" alt="Globe Image">
 </div>

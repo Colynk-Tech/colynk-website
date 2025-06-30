@@ -11,6 +11,5 @@ body {
   background: #FFFCEF;
 }
 .custom-container {
-  width: 80%;
-  @apply mx-auto;
+  @apply sm:w-[80%] w-[90%] mx-auto;
 }

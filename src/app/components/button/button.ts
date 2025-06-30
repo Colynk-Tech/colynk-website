@@ -17,11 +17,11 @@ export class Button {
   get fontSize() {
     switch (this.size) {
       case 'small':
-        return 'sm';
+        return 'lg:text-xl sm:text-base text-xs px-[10px] py-[4.5px]';
       case 'medium':
-        return 'xl';
+        return 'text-xl px-[10px] py-[4.5px]';
       case 'large':
-        return '2xl';
+        return 'text-2xl px-[20px] py-[7px]';
     }
   }
   get buttonColor() {
@@ -35,7 +35,7 @@ export class Button {
   get buttonRound() {
     switch (this.rounded) {
       case 'lg':
-        return 'rounded-lg';
+        return 'sm:rounded-lg rounded-md';
       case 'full':
         return 'rounded-full';
     }
