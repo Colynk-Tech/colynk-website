@@ -67,7 +67,8 @@
             label="Verstuur bericht"
             class="w-full mt-10"
             type="submit"
-            [disabled]="contactForm.invalid"
+            [disabled]="contactForm.invalid || loading"
+            [loading]="loading"
           ></app-button>
         </form>
       } @else {
