@@ -1,8 +1,11 @@
 import { Component, Input } from '@angular/core';
+import { Loader } from '../loader/loader';
 
 @Component({
   selector: 'app-button',
-  imports: [],
+  imports: [
+    Loader
+  ],
   templateUrl: './button.html',
   styleUrl: './button.scss'
 })
@@ -13,6 +16,7 @@ export class Button {
   @Input() rounded: 'lg' | 'full' = 'lg';
   @Input() disabled?: boolean = false;
   @Input() type: 'button' | 'submit' = 'button';
+  @Input() loading: boolean = false;
 
   get fontSize() {
     switch (this.size) {
