@@ -3,7 +3,7 @@
     <h1 class="text-center text-3xl">Stuur ons een bericht!</h1>
     <p class="text-center text-md font-light">Heb je vragen, opmerkingen of suggesties? Vul het onderstaande formulier in en we nemen zo snel mogelijk contact met je op.</p>
 
-    <div class="w-2/3 border border-black rounded-lg p-6 mx-auto mt-8">
+    <div class="md:w-2/3 w-full border border-black rounded-lg p-6 mx-auto mt-8">
       @if (!formSent) {
         <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
           <div class="relative mb-4">
