@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Button } from '../../components/button/button';
 import { Api } from '../../services/api';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { AlertService } from '../../services/alert';
 
 @Component({
   selector: 'app-contact',
@@ -16,7 +17,8 @@ export class Contact implements OnInit {
 
   constructor(
     private apiService: Api,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private alert: AlertService
   ) {
   }
 
@@ -47,6 +49,10 @@ export class Contact implements OnInit {
       },
       error: (err) => {
         console.error('Error sending contact form:', err);
+        this.alert.add({
+          type: 'danger',
+          message: 'Er is een fout opgetreden bij het verzenden van het contactformulier. Probeer het later opnieuw.'
+        });
       }
     });
   }
