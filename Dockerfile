@@ -1,24 +1,22 @@
 # Stage 1: Build Angular app
 FROM node:20-alpine AS build
 
-WORKDIR /app
+WORKDIR /app/src
 
 # Copy package files and install dependencies
 COPY package.json package-lock.json ./
 RUN npm ci
 
 # Copy the entire project and build
-COPY . .
+COPY . ./
 RUN npm run build -- --configuration=production
 
-# Stage 2: Serve with Nginx
-FROM nginx:alpine
+FROM node:20-alpine
 
-# Copy built Angular app to Nginx's HTML directory
-COPY --from=build /app/dist/colynk-website/browser /usr/share/nginx/html
+WORKDIR /usr/app
 
-# Expose port 80
-EXPOSE 80
+COPY --from=build /app/src/dist/colynk-website ./
 
-# Start Nginx
-CMD ["nginx", "-g", "daemon off;"]
+EXPOSE 4000
+
+CMD ["node", "server/server.mjs"]
