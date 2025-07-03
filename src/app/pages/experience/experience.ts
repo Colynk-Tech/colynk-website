@@ -12,7 +12,7 @@ export class Experience implements OnInit {
   }
   ngOnInit() {
     this.seo.addTags({
-      title: 'Ervaring',
+      title: 'Technologie',
       description: 'Colynk heeft uitgebreide ervaring in cross-platform ontwikkeling, design, hosting en domeinregistratie.',
       keywords: 'Colynk, ervaring, cross-platform, ontwikkeling, design, hosting, domein',
     });

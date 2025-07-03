@@ -5,7 +5,7 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-navbar',
   imports: [
-    Button
+    Button,
   ],
   templateUrl: './navbar.html',
   styleUrl: './navbar.scss'

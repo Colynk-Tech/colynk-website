@@ -10,7 +10,7 @@ import { Loader } from '../loader/loader';
   styleUrl: './button.scss'
 })
 export class Button {
-  @Input() size: 'small' | 'medium' | 'large' = 'medium';
+  @Input() size: 'extra small' | 'small' | 'medium' | 'large' = 'medium';
   @Input() color: 'black' | 'clear' = 'clear';
   @Input() label: string = 'Button';
   @Input() rounded: 'lg' | 'full' = 'lg';
@@ -20,6 +20,8 @@ export class Button {
 
   get fontSize() {
     switch (this.size) {
+      case 'extra small':
+        return 'lg:text-sm sm:text-xs text-xs px-[10px] py-[4.5px]';
       case 'small':
         return 'lg:text-xl sm:text-base text-xs px-[10px] py-[4.5px]';
       case 'medium':
