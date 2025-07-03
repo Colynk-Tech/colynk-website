@@ -3,6 +3,7 @@ import { Button } from '../../components/button/button';
 import { Api } from '../../services/api';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { AlertService } from '../../services/alert';
+import { Seo } from '../../services/seo';
 
 @Component({
   selector: 'app-contact',
@@ -18,7 +19,8 @@ export class Contact implements OnInit {
   constructor(
     private apiService: Api,
     private fb: FormBuilder,
-    private alert: AlertService
+    private alert: AlertService,
+    private seo: Seo
   ) {
   }
 
@@ -27,6 +29,12 @@ export class Contact implements OnInit {
   loading: boolean;
 
   ngOnInit(): void {
+    this.seo.addTags({
+      title: 'Contact',
+      description: 'Neem contact op met Colynk!',
+      keywords: 'Colynk, contact, cross-platform, ontwikkeling, design, hosting, domein, website, app',
+    })
+
     this.loading = true;
 
     this.contactForm = this.fb.group({

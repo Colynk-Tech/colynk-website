@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Seo } from '../../services/seo';
 
 @Component({
   selector: 'app-experience',
@@ -6,6 +7,14 @@ import { Component } from '@angular/core';
   templateUrl: './experience.html',
   styleUrl: './experience.scss'
 })
-export class Experience {
-
+export class Experience implements OnInit {
+  constructor(private seo: Seo) {
+  }
+  ngOnInit() {
+    this.seo.addTags({
+      title: 'Ervaring',
+      description: 'Colynk heeft uitgebreide ervaring in cross-platform ontwikkeling, design, hosting en domeinregistratie.',
+      keywords: 'Colynk, ervaring, cross-platform, ontwikkeling, design, hosting, domein',
+    });
+  }
 }

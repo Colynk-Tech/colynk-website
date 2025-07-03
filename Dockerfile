@@ -18,7 +18,7 @@ FROM nginx:alpine
 COPY --from=build /app/dist/colynk-website/browser /usr/share/nginx/html
 
 # Expose port 80
-EXPOSE 80
+EXPOSE 4000
 
 # Start Nginx
-CMD ["nginx", "-g", "daemon off;"]
+CMD ["npm", "run", "serve:ssr:colynk-website"]
