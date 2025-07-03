@@ -11,14 +11,6 @@ RUN npm ci
 COPY . .
 RUN npm run build -- --configuration=production
 
-# Stage 2: Serve with Nginx
-FROM nginx:alpine
-
-# Copy built Angular app to Nginx's HTML directory
-COPY --from=build /app/dist/colynk-website/browser /usr/share/nginx/html
-
-# Expose port 80
 EXPOSE 4000
 
-# Start Nginx
 CMD ["npm", "run", "serve:ssr:colynk-website"]
