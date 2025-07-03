@@ -18,14 +18,13 @@ export const appConfig: ApplicationConfig = {
   providers: [
     provideBrowserGlobalErrorListeners(),
     provideZoneChangeDetection({ eventCoalescing: true }),
-    provideRouter(routes), provideClientHydration(withEventReplay()),
-    provideClientHydration(withI18nSupport()),
+    provideRouter(routes),
+    provideClientHydration(withEventReplay(), withI18nSupport()),
     provideHttpClient(),
     provideAnimations(),
-    provideServerRendering(withRoutes(serverRoutes))
   ]
 };
 export const API_URL = new InjectionToken<string>('API_URL', {
   providedIn: 'root',
-  factory: () => 'https://api.colynk.tech'
+  factory: () => 'http://localhost:3000'
 });

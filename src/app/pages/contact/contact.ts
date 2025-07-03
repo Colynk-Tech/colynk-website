@@ -72,5 +72,6 @@ export class Contact implements OnInit {
         this.loading = false;
       }
     });
+    this.loading = false;
   }
 }
