@@ -19,4 +19,4 @@ COPY --from=build /app/src/dist/colynk-website ./
 
 EXPOSE 4000
 
-CMD ["node", "server/server.js"]
+CMD ["node", "server/server.mjs"]
