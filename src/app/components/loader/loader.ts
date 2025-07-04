@@ -10,7 +10,7 @@ export class Loader {
   @Input() size: 'sm' | 'md' | 'lg' | 'xl' | string = 'lg';
   @Input() color: '' | string = '#000000';
   @Input() fill: '' | string = '#ffffff';
-  get dimesnsion() {
+  get dimension() {
     return this.size === 'sm'
       ? '1em'
       : this.size === 'md'
