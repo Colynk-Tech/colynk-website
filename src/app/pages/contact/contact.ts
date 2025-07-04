@@ -65,6 +65,7 @@ export class Contact implements OnInit {
           // Reset the form on success
           this.contactForm.reset();
           this.formSent = true;
+          this.loading = false;
         }
         this.loading = false;
       },
@@ -78,6 +79,5 @@ export class Contact implements OnInit {
         this.loading = false;
       },
     });
-    this.loading = false;
   }
 }
