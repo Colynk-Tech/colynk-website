@@ -5,16 +5,17 @@ import { Seo } from '../../services/seo';
   selector: 'app-experience',
   imports: [],
   templateUrl: './experience.html',
-  styleUrl: './experience.scss'
+  styleUrl: './experience.scss',
 })
 export class Experience implements OnInit {
-  constructor(private seo: Seo) {
-  }
+  constructor(private seo: Seo) {}
   ngOnInit() {
     this.seo.addTags({
       title: 'Technologie',
-      description: 'Colynk heeft uitgebreide ervaring in cross-platform ontwikkeling, design, hosting en domeinregistratie.',
-      keywords: 'Colynk, ervaring, cross-platform, ontwikkeling, design, hosting, domein',
+      description:
+        'Colynk heeft uitgebreide ervaring in cross-platform ontwikkeling, design, hosting en domeinregistratie.',
+      keywords:
+        'Colynk, ervaring, cross-platform, ontwikkeling, design, hosting, domein',
     });
   }
 }

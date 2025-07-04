@@ -7,29 +7,31 @@ import { animate, style, transition, trigger } from '@angular/animations';
 
 @Component({
   selector: 'app-navbar',
-  imports: [
-    Button,
-    NgClass,
-  ],
+  imports: [Button, NgClass],
   templateUrl: './navbar.html',
   styleUrl: './navbar.scss',
   animations: [
     trigger('dropdownAnimation', [
       transition(':enter', [
         style({ opacity: 0, transform: 'translateY(-1rem)' }),
-        animate('200ms ease-out', style({ opacity: 1, transform: 'translateY(0)' })),
+        animate(
+          '200ms ease-out',
+          style({ opacity: 1, transform: 'translateY(0)' }),
+        ),
       ]),
       transition(':leave', [
-        animate('100ms ease-in', style({ opacity: 0, transform: 'translateY(-1rem)' })),
+        animate(
+          '100ms ease-in',
+          style({ opacity: 0, transform: 'translateY(-1rem)' }),
+        ),
       ]),
-    ])
-  ]
+    ]),
+  ],
 })
 export class Navbar {
   menuOpen = false;
 
-  constructor(private router: Router) {
-  }
+  constructor(private router: Router) {}
 
   public navigateTo(page: string): void {
     this.router.navigate([`/${page}`]);

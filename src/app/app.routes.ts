@@ -10,5 +10,5 @@ export const routes: Routes = [
   { path: 'contact', component: Contact },
   { path: 'over-ons', component: OverOns },
   { path: 'technologie', component: Experience },
-  { path: 'diensten', component: Diensten }
+  { path: 'diensten', component: Diensten },
 ];

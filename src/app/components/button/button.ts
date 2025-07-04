@@ -3,11 +3,9 @@ import { Loader } from '../loader/loader';
 
 @Component({
   selector: 'app-button',
-  imports: [
-    Loader
-  ],
+  imports: [Loader],
   templateUrl: './button.html',
-  styleUrl: './button.scss'
+  styleUrl: './button.scss',
 })
 export class Button {
   @Input() size: 'extra small' | 'small' | 'medium' | 'large' = 'medium';

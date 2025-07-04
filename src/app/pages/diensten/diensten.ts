@@ -4,16 +4,12 @@ import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-diensten',
-  imports: [
-    Button
-  ],
+  imports: [Button],
   templateUrl: './diensten.html',
-  styleUrl: './diensten.scss'
+  styleUrl: './diensten.scss',
 })
 export class Diensten {
-
-  constructor(private router: Router) {
-  }
+  constructor(private router: Router) {}
 
   navigateTo(path: string): void {
     this.router.navigate([path]);

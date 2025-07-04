@@ -1,6 +1,9 @@
-<button class="sm:px-[20px] sm:py-[7px] {{ fontSize }} {{ buttonColor }} {{ buttonRound }} cursor-pointer disabled:bg-[#333] disabled:text-[#aaa] disabled:cursor-not-allowed disabled:opacity-60" [disabled]="disabled" type="{{ type }}">
+<button
+  class="sm:px-[20px] sm:py-[7px] {{ fontSize }} {{ buttonColor }} {{ buttonRound }} cursor-pointer disabled:bg-[#333] disabled:text-[#aaa] disabled:cursor-not-allowed disabled:opacity-60"
+  [disabled]="disabled"
+  type="{{ type }}"
+>
   @if (loading) {
-    <app-loader size="sm"></app-loader>
-  }
-  {{ label }}
+  <app-loader size="sm"></app-loader>
+  } {{ label }}
 </button>
