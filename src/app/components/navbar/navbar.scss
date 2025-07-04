@@ -1,0 +1,7 @@
+// No custom styles needed; all handled by Tailwind classes.
+// Add z-index to ensure dropdown overlays content if needed.
+:host {
+  position: relative;
+  z-index: 100;
+}
+
