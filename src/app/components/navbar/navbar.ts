@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { Button } from '../button/button';
 import { Router } from '@angular/router';
 import { NgClass } from '@angular/common';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { animate, style, transition, trigger } from '@angular/animations';
 
 @Component({
