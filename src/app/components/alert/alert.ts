@@ -1,5 +1,10 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { faExclamationTriangle, faInfo, faCheckCircle, faCircleExclamation } from '@fortawesome/free-solid-svg-icons';
+import {
+  faExclamationTriangle,
+  faInfo,
+  faCheckCircle,
+  faCircleExclamation,
+} from '@fortawesome/free-solid-svg-icons';
 import { Subscription } from 'rxjs';
 import { animate, style, transition, trigger } from '@angular/animations';
 import { FaIconComponent } from '@fortawesome/angular-fontawesome';
@@ -8,10 +13,7 @@ import { Alert, AlertService } from '../../services/alert';
 
 @Component({
   selector: 'app-alert',
-  imports: [
-    FaIconComponent,
-    TitleCasePipe,
-  ],
+  imports: [FaIconComponent, TitleCasePipe],
   templateUrl: './alert.html',
   styleUrl: './alert.scss',
   animations: [
@@ -19,15 +21,18 @@ import { Alert, AlertService } from '../../services/alert';
       transition(':enter', [
         style({
           opacity: 0,
-          transform: 'translateX(100%)'
+          transform: 'translateX(100%)',
         }),
-        animate('500ms ease', style({
-          opacity: 1,
-          transform: 'translateX(0)'
-        })),
+        animate(
+          '500ms ease',
+          style({
+            opacity: 1,
+            transform: 'translateX(0)',
+          }),
+        ),
       ]),
     ]),
-  ]
+  ],
 })
 export class AlertComponent implements OnInit, OnDestroy {
   faExclamationTriangle = faExclamationTriangle;
@@ -38,7 +43,7 @@ export class AlertComponent implements OnInit, OnDestroy {
   alerts: Alert[] = [];
   alertSubscription: Subscription;
 
-  constructor(private alertService: AlertService) { }
+  constructor(private alertService: AlertService) {}
 
   icon(type: string): any {
     switch (type) {
@@ -66,12 +71,13 @@ export class AlertComponent implements OnInit, OnDestroy {
   }
   ngOnInit() {
     this.alertSubscription = this.alertService.alert$.subscribe({
-      complete(): void {
-      }, error(err: any): void {
-      }, next: (alert: Alert) => {
+      complete(): void {},
+      error(err: any): void {},
+      next: (alert: Alert) => {
         this.alerts.push(alert);
         setTimeout(() => this.remove(alert), 5000);
-      }});
+      },
+    });
   }
   remove(alert: Alert): void {
     this.alerts = this.alerts.filter((a) => a !== alert);

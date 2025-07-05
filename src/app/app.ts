@@ -6,14 +6,9 @@ import { AlertComponent } from './components/alert/alert';
 
 @Component({
   selector: 'app-root',
-  imports: [
-    RouterOutlet,
-    Navbar,
-    Footer,
-    AlertComponent
-  ],
+  imports: [RouterOutlet, Navbar, Footer, AlertComponent],
   templateUrl: './app.html',
-  styleUrl: './app.scss'
+  styleUrl: './app.scss',
 })
 export class App {
   protected title = 'Colynk';

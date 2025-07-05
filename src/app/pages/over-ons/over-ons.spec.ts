@@ -8,9 +8,8 @@ describe('OverOns', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [OverOns]
-    })
-    .compileComponents();
+      imports: [OverOns],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(OverOns);
     component = fixture.componentInstance;
