@@ -9,6 +9,37 @@ body {
   min-height: 100%;
   font-size: 14px;
 }
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+h4 {
+  display: block;
+  margin-block-start: 1.33em;
+  margin-block-end: 1.33em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  font-weight: bold;
+  unicode-bidi: isolate;
+  font-size: 18px;
+  margin-top: 10px;
+  line-height: 24px;
+}
+p {
+  margin-top: 0;
+  margin-bottom: 10px;
+  display: block;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  unicode-bidi: isolate;
+}
 .custom-container {
   @apply sm:w-[80%] w-[90%] mx-auto;
 }
