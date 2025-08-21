@@ -6,7 +6,7 @@ import { animate, style, transition, trigger } from '@angular/animations';
 
 @Component({
   selector: 'app-navbar',
-  imports: [Button, NgClass, NgOptimizedImage],
+  imports: [],
   templateUrl: './navbar.html',
   styleUrl: './navbar.scss',
   animations: [
