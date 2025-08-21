@@ -10,15 +10,7 @@ export const serverRoutes: ServerRoute[] = [
     renderMode: RenderMode.Client,
   },
   {
-    path: 'technologie',
-    renderMode: RenderMode.Prerender,
-  },
-  {
     path: 'over-ons',
-    renderMode: RenderMode.Prerender,
-  },
-  {
-    path: 'diensten',
     renderMode: RenderMode.Prerender,
   },
 ];

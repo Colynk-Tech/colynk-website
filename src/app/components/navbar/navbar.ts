@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
 import { Button } from '../button/button';
 import { Router } from '@angular/router';
-import { NgClass } from '@angular/common';
+import { NgClass, NgOptimizedImage } from '@angular/common';
 import { animate, style, transition, trigger } from '@angular/animations';
 
 @Component({
   selector: 'app-navbar',
-  imports: [Button, NgClass],
+  imports: [Button, NgClass, NgOptimizedImage],
   templateUrl: './navbar.html',
   styleUrl: './navbar.scss',
   animations: [

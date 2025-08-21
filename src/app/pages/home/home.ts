@@ -5,7 +5,7 @@ import { Seo } from '../../services/seo';
 
 @Component({
   selector: 'app-home',
-  imports: [Button],
+  imports: [],
   templateUrl: './home.html',
   styleUrl: './home.scss',
 })

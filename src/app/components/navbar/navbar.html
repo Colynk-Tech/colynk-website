@@ -1,111 +1,36 @@
-<div class="lg:h-[100px] sm:h-[75px] h-[50px] w-full custom-container">
-  <div class="flex justify-between h-full items-center">
-    <div
-      class="flex content-center h-full cursor-pointer z-100"
-      (click)="navigateTo('')"
-    >
-      <img
-        src="../../../assets/logo-outline-black.svg"
-        class="lg:h-[34.69px] lg:w-[26px] sm:h-[23.22px] sm:w-[17.4px] h-[10.65px] w-[14.22px] sm:mr-3 mr-[4px] my-auto"
-      />
-      <span class="lg:text-5xl sm:text-[32px] text-xl h-fit my-auto"
-        >Colynk_</span
-      >
-    </div>
-
-    <!-- Desktop/Tablet links -->
-    <div class="flex max-[800px]:hidden">
-      <div
-        class="lg:text-xl sm:text-base text-xs sm:ml-[40px] ml-[10px] my-auto cursor-pointer"
-        (click)="navigateTo('diensten')"
-      >
-        Diensten
-      </div>
-      <div
-        class="lg:text-xl sm:text-base text-xs sm:ml-[40px] ml-[10px] my-auto cursor-pointer"
-        (click)="navigateTo('technologie')"
-      >
-        Technologieën
-      </div>
-      <div
-        class="lg:text-xl sm:text-base text-xs sm:ml-[40px] ml-[10px] my-auto cursor-pointer"
-        (click)="navigateTo('over-ons')"
-      >
-        Over Ons
-      </div>
-      <div
-        class="lg:text-xl sm:text-base text-xs sm:ml-[40px] ml-[10px] my-auto cursor-pointer"
-        (click)="navigateTo('contact')"
-      >
-        <app-button
-          size="small"
-          label="Contact"
-          color="black"
-          rounded="lg"
-        ></app-button>
-      </div>
-    </div>
-
-    <!-- Hamburger for <400px -->
-    <div class="min-[801px]:hidden flex items-center">
-      <button
-        class="flex flex-col justify-center items-center w-8 h-8"
-        (click)="toggleMenu()"
-        aria-label="Menu"
-      >
-        <span
-          class="block w-6 h-0.5 bg-black mb-1 transition-all"
-          [ngClass]="{'rotate-45 translate-y-1.5': menuOpen}"
-        ></span>
-        <span
-          class="block w-6 h-0.5 bg-black mb-1 transition-all"
-          [ngClass]="{'opacity-0': menuOpen}"
-        ></span>
-        <span
-          class="block w-6 h-0.5 bg-black transition-all"
-          [ngClass]="{'-rotate-45 -translate-y-1.5': menuOpen}"
-        ></span>
-      </button>
+<div class="custom-container h-20">
+  <div class="flex items-center justify-between h-full">
+    <a href="/" class="flex">
+      <img src="assets/logo-outline-black.svg" alt="Colynk Logo" class="mr-2" />
+      <div class="text-3xl">Colynk_</div>
+    </a>
+    <div class="">
+      <ul class="flex space-x-5 justify-between items-center">
+        <li>
+          <a href="/" class="">Home</a>
+        </li>
+        <li>
+          <a href="/over-ons" class="">Over Ons</a>
+        </li>
+        <li>
+          <a href="/blog" class="">Blog</a>
+        </li>
+        <li>
+          <a href="/contact" class="">Contact</a>
+        </li>
+        <li>
+          <div class="border border-gray-950 flex">
+            <div class="py-3 px-5 flex items-center space-x-2">
+              <div>Nederlands</div>
+              <img
+                src="assets/icons/chevron-down.svg"
+                alt="Dropdown Icon"
+                class="w-4 h-4"
+              />
+            </div>
+          </div>
+        </li>
+      </ul>
     </div>
   </div>
-
-  <!-- Dropdown menu for <400px -->
-  @if (menuOpen) {
-  <div
-    @dropdownAnimation
-    class="min-[801px]:hidden absolute left-0 right-0 top-[50px] bg-[#FFFCEF] border-b border-black shadow-lg z-50"
-  >
-    <div class="flex flex-col items-center py-4 space-y-2">
-      <div
-        class="text-base cursor-pointer"
-        (click)="navigateTo('diensten'); closeMenu()"
-      >
-        Diensten
-      </div>
-      <div
-        class="text-base cursor-pointer"
-        (click)="navigateTo('technologie'); closeMenu()"
-      >
-        Technologieën
-      </div>
-      <div
-        class="text-base cursor-pointer"
-        (click)="navigateTo('over-ons'); closeMenu()"
-      >
-        Over Ons
-      </div>
-      <div
-        class="text-base cursor-pointer"
-        (click)="navigateTo('contact'); closeMenu()"
-      >
-        <app-button
-          size="small"
-          label="Contact"
-          color="black"
-          rounded="lg"
-        ></app-button>
-      </div>
-    </div>
-  </div>
-  }
 </div>
