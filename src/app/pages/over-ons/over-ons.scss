@@ -1,0 +1,20 @@
+.bg-image-1 {
+  background-image: url(../../../assets/about-us-2.jpeg);
+  background-position: 50% 35%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 15px;
+  min-height: 300px;
+  margin-top: 10px;
+  margin-left: -40px;
+}
+.bg-image-2 {
+  background-image: url(../../../assets/about-us-1.jpeg);
+  background-position: 0 90%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 15px;
+  min-height: 200px;
+  margin-top: 10px;
+  display: block;
+}
