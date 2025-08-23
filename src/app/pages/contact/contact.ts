@@ -12,7 +12,7 @@ import { Seo } from '../../services/seo';
 
 @Component({
   selector: 'app-contact',
-  imports: [Button, ReactiveFormsModule],
+  imports: [ReactiveFormsModule],
   templateUrl: './contact.html',
   styleUrl: './contact.scss',
 })

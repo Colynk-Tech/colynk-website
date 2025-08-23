@@ -1,78 +1,67 @@
-<div class="custom-container">
-  <div>
-    <h1 class="text-center text-3xl">Stuur ons een bericht!</h1>
-    <p class="text-center text-md font-light">
-      Heb je vragen, opmerkingen of suggesties? Vul het onderstaande formulier
-      in en we nemen zo snel mogelijk contact met je op.
-    </p>
+<section class="py-20">
+  <div class="custom-container">
+    <div class="grid grid-cols-2 grid-rows-2 gap-4 min-h-80">
+      <div>
+        <div class="text-7xl font-extralight">Let's chat!</div>
+        <div class="bg-black w-62 h-4"></div>
+      </div>
 
-    <div
-      class="md:w-2/3 w-full border border-black rounded-lg p-6 mx-auto mt-8"
-    >
-      @if (!formSent) {
-      <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
-        <div class="relative mb-4">
-          <input
-            type="text"
-            id="name"
-            formControlName="name"
-            placeholder=" "
-            class="peer w-full border-b border-black focus:outline-none p-2 text-black placeholder-transparent"
-          />
-          <label
-            for="name"
-            class="absolute left-2 -top-3 text-gray-500 transition-all peer-placeholder-shown:top-3 peer-placeholder-shown:text-base peer-placeholder-shown:text-black peer-focus:-top-3 peer-focus:text-sm peer-focus:text-black"
-          >
-            Naam
-          </label>
+      <div
+        class="row-span-2 self-end flex flex-col justify-between h-full pt-6"
+      >
+        <div>
+          <div class="font-medium">Say hello</div>
+          <div class="bg-gray-200 h-px my-4 w-full"></div>
         </div>
+        <div class="">
+          <form>
+            <label for="name">Name</label>
+            <input
+              maxlength="256"
+              name="name"
+              id="name"
+              type="text"
+              class="text-field"
+              placeholder="Your Name"
+              required
+            />
 
-        <div class="relative mb-10">
-          <input
-            type="email"
-            id="email"
-            formControlName="email"
-            placeholder=" "
-            class="peer w-full border-b border-black focus:outline-none p-2 text-black placeholder-transparent"
-          />
-          <label
-            for="email"
-            class="absolute left-2 -top-3 text-gray-500 text-sm transition-all peer-placeholder-shown:top-3 peer-placeholder-shown:text-base peer-placeholder-shown:text-black peer-focus:-top-3 peer-focus:text-sm peer-focus:text-black"
-          >
-            Email
-          </label>
+            <label for="email">Email</label>
+            <input
+              maxlength="256"
+              name="email"
+              id="email"
+              type="email"
+              class="text-field"
+              placeholder="Email Address"
+              required
+            />
+
+            <label for="message">Message</label>
+            <textarea
+              required
+              placeholder="Start typing here"
+              maxlength="5000"
+              id="message"
+              name="message"
+              class="text-field"
+            ></textarea>
+
+            <input type="submit" class="submit-button" value="Submit" />
+          </form>
         </div>
+      </div>
 
-        <div class="relative mb-6">
-          <textarea
-            id="message"
-            formControlName="message"
-            rows="4"
-            placeholder=" "
-            class="peer w-full border-b border-black focus:outline-none p-2 text-black placeholder-transparent"
-          ></textarea>
-          <label
-            for="message"
-            class="absolute left-2 -top-3 text-gray-500 text-sm transition-all peer-placeholder-shown:top-3 peer-placeholder-shown:text-base peer-placeholder-shown:text-black peer-focus:-top-3 peer-focus:text-sm peer-focus:text-black"
-          >
-            Bericht
-          </label>
+      <div class="self-end grid grid-cols-2 gap-4">
+        <div>
+          <div class="font-semibold">Email</div>
+          <div class="font-light">info&#64;colyk.tech</div>
         </div>
-
-        <app-button
-          size="small"
-          rounded="full"
-          color="black"
-          label="Verstuur bericht"
-          class="w-full mt-10"
-          type="submit"
-          [disabled]="contactForm.invalid || loading"
-          [loading]="loading"
-        ></app-button>
-      </form>
-      } @else {
-      <div>Bericht verzonden!</div>
-      }
+        <div>
+          <div class="font-semibold">Phone</div>
+          <div class="font-light">+31 645446791</div>
+        </div>
+      </div>
     </div>
   </div>
-</div>
+</section>
