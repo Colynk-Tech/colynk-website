@@ -13,4 +13,8 @@ export const serverRoutes: ServerRoute[] = [
     path: 'over-ons',
     renderMode: RenderMode.Prerender,
   },
+  {
+    path: 'blog',
+    renderMode: RenderMode.Client,
+  },
 ];
