@@ -1,5 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { DatePipe } from '@angular/common';
+import { Strapi } from '../../../services/strapi';
+import { ActivatedRoute } from '@angular/router';
+import { STRAPI_URL } from '../../../app.config';
 
 @Component({
   selector: 'app-blog-post',
@@ -7,20 +10,41 @@ import { DatePipe } from '@angular/common';
   templateUrl: './blog-post.html',
   styleUrl: './blog-post.scss',
 })
-export class BlogPost {
-  public post = {
-    id: 1,
-    slug: 'de-toekomst-van-webdesign',
-    imageUrl:
-      'https://cdn.prod.website-files.com/68a47511779a71fac3a3bdcf/68a4754339c249102ee71f39_image17.jpeg',
-    publishedAt: new Date(),
-    updatedAt: new Date(),
-    createdAt: new Date(),
-    title: 'De toekomst van webdesign',
-    blurb:
-      'Webdesign evolueert met innovaties zoals kunstmatige intelligentie en duurzaam ontwerp. Dit artikel verkent de trends die de toekomst van webdesign vormgeven.',
-    richText: `
-      <h1>Innovaties in webdesign</h1><p>Webdesign evolueert voortdurend, met nieuwe technologieën en trends die de manier waarop we websites bouwen en gebruiken veranderen. Dit artikel verkent enkele van de belangrijkste innovaties die de toekomst van webdesign vormgeven.</p><h2>1. Kunstmatige intelligentie</h2><p>Kunstmatige intelligentie (AI) speelt een steeds grotere rol in webdesign. Van chatbots die klantenservice bieden tot AI-gestuurde ontwerptools, de mogelijkheden zijn eindeloos. AI kan helpen bij het personaliseren van de gebruikerservaring en het optimaliseren van de website.</p><h2>2. Responsieve en adaptieve ontwerpen</h2><p>Met de diversiteit aan apparaten die tegenwoordig worden gebruikt, is responsief en adaptief ontwerp cruciaal. Websites moeten zich aanpassen aan verschillende schermformaten en resoluties om een optimale gebruikerservaring te bieden.</p><h2>3. Duurzaam webdesign</h2><p>Met de groeiende bezorgdheid over het milieu, wordt duurzaam webdesign steeds belangrijker. Dit omvat het optimaliseren van websites voor energie-efficiëntie en het gebruik van groene hostingdiensten.</p><blockquote>De toekomst van webdesign is innovatief en gericht op gebruiksvriendelijkheid.</blockquote>
-      `,
+export class BlogPost implements OnInit {
+  constructor(
+    private strapi: Strapi,
+    private activatedRoute: ActivatedRoute,
+  ) {}
+
+  private strapiUrl = inject(STRAPI_URL);
+  public post: {
+    id: number;
+    slug: string;
+    imageUrl: string;
+    publishedAt: Date;
+    updatedAt: Date;
+    createdAt: Date;
+    title: string;
+    blurb: string;
+    richText: string;
   };
+
+  ngOnInit() {
+    this.strapi
+      .fetchBlogPostBySlug(this.activatedRoute.snapshot.params['id'])
+      .subscribe((data: any) => {
+        console.log(data);
+        this.post.id = data.data[0].id;
+        this.post.slug = data.data[0].slug;
+        this.post.imageUrl = `${this.strapiUrl}${data.data[0].main_image.url}`;
+        this.post.publishedAt = new Date(data.data[0].publishedAt);
+        this.post.updatedAt = new Date(data.data[0].updatedAt);
+        this.post.createdAt = new Date(data.data[0].createdAt);
+        this.post.title = data.data[0].title;
+        this.post.blurb = data.data[0].blurb;
+        this.post.richText = data.data[0].body[0].children[0].text;
+
+        console.log(this.post);
+      });
+  }
 }

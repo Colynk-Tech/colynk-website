@@ -32,3 +32,7 @@ export const API_URL = new InjectionToken<string>('API_URL', {
   providedIn: 'root',
   factory: () => 'https://api.colynk.tech',
 });
+export const STRAPI_URL = new InjectionToken<string>('STRAPI_URL', {
+  providedIn: 'root',
+  factory: () => 'http://localhost:1337',
+});
