@@ -1,1 +1,29 @@
-<p>blog-post works!</p>
+<div class="custom-container py-16 px-8">
+  <div>
+    <a href="/blog"><span class="underline">Blog</span></a> /
+    <span>{{ post.title }}</span>
+    <h3 class="text-4xl! font-bold">{{ post.title }}</h3>
+  </div>
+  <div class="grid grid-cols-2 gap-8">
+    <div class="hidden">
+      <div class="mx-auto relative">
+        <img src="{{ post.imageUrl }}" class="rounded-xl max-w-full" />
+      </div>
+    </div>
+
+    <div>
+      <p class="text-xl">
+        Laatst geupdatet: {{ post.updatedAt | date: 'longDate' }}
+      </p>
+      <hr class="text-gray-200 my-4" />
+      <div [innerHTML]="post.richText"></div>
+    </div>
+
+    <div class="relative">
+      <img src="assets/grid.svg" class="absolute right-0 top-0 -mr-20 -mt-20" />
+      <div class="relative">
+        <img src="{{ post.imageUrl }}" class="rounded-xl max-w-full" />
+      </div>
+    </div>
+  </div>
+</div>
