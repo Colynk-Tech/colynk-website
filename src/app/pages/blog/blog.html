@@ -5,7 +5,12 @@
 <section class="bg-gray-50 py-5">
   <div class="custom-container">
     <div class="my-5 grid grid-cols-3 gap-5">
-      @for (blogPost of blogPosts; track blogPost.id) { @if($index === 0) {
+      @if (loading) {
+      <div class="flex justify-center items-center mt-50">
+        <app-loader size="lg"></app-loader>
+      </div>
+      } @if (!loading) { @for (blogPost of blogPosts; track blogPost.id) {
+      @if($index === 0) {
       <a href="/blog/{{ blogPost.slug }}" class="col-span-2">
         <div
           class="bg-white cursor-pointer border border-gray-200 rounded-lg mb-5 hover:bg-gray-100 transition duration-200 ease-in-out grid grid-cols-2 h-full"
@@ -45,7 +50,7 @@
           </div>
         </div>
       </a>
-      } }
+      } } }
     </div>
   </div>
 </section>

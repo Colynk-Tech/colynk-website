@@ -3,10 +3,11 @@ import { DatePipe } from '@angular/common';
 import { Strapi } from '../../../services/strapi';
 import { ActivatedRoute } from '@angular/router';
 import { STRAPI_URL } from '../../../app.config';
+import { Loader } from '../../../components/loader/loader';
 
 @Component({
   selector: 'app-blog-post',
-  imports: [DatePipe],
+  imports: [DatePipe, Loader],
   templateUrl: './blog-post.html',
   styleUrl: './blog-post.scss',
 })
@@ -27,13 +28,26 @@ export class BlogPost implements OnInit {
     title: string;
     blurb: string;
     richText: string;
+  } = {
+    id: 0,
+    slug: '',
+    imageUrl: '',
+    publishedAt: new Date(),
+    updatedAt: new Date(),
+    createdAt: new Date(),
+    title: '',
+    blurb: '',
+    richText: '',
   };
+  public loading = false;
 
   ngOnInit() {
+    this.loading = true;
+
     this.strapi
       .fetchBlogPostBySlug(this.activatedRoute.snapshot.params['id'])
       .subscribe((data: any) => {
-        console.log(data);
+        console.log(data.data[0]);
         this.post.id = data.data[0].id;
         this.post.slug = data.data[0].slug;
         this.post.imageUrl = `${this.strapiUrl}${data.data[0].main_image.url}`;
@@ -45,6 +59,7 @@ export class BlogPost implements OnInit {
         this.post.richText = data.data[0].body[0].children[0].text;
 
         console.log(this.post);
+        this.loading = false;
       });
   }
 }

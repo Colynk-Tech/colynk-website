@@ -1,4 +1,9 @@
 <div class="custom-container py-16 px-8">
+  @if (loading) {
+  <div class="flex justify-center items-center mt-50">
+    <app-loader size="lg"></app-loader>
+  </div>
+  } @if (!loading) {
   <div>
     <a href="/blog"><span class="underline">Blog</span></a> /
     <span>{{ post.title }}</span>
@@ -26,4 +31,5 @@
       </div>
     </div>
   </div>
+  }
 </div>
