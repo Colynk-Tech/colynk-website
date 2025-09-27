@@ -21,4 +21,12 @@ export const serverRoutes: ServerRoute[] = [
     path: 'blog/:id',
     renderMode: RenderMode.Client,
   },
+  {
+    path: 'algemene-voorwaarden',
+    renderMode: RenderMode.Prerender,
+  },
+  {
+    path: 'privacy',
+    renderMode: RenderMode.Prerender,
+  },
 ];

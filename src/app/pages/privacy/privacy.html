@@ -1,0 +1,14 @@
+<section class="custom-container">
+  <h1 class="text-5xl">Privacyverklaring - Colynk</h1>
+  @if (loading) {
+  <app-loader size="md"></app-loader>
+  } @if (!loading) {
+  <p>Versie: {{ version | date: 'longDate' }}</p>
+  <p>
+    Bij Colynk hechten we veel waarde aan de bescherming van jouw
+    persoonsgegevens. In deze privacyverklaring leggen we uit welke gegevens we
+    verzamelen, waarom we dat doen en wat jouw rechten zijn.
+  </p>
+  <div [innerHTML]="privacyContent"></div>
+  }
+</section>

@@ -31,7 +31,6 @@ export class Blog implements OnInit {
     this.loading = true;
 
     this.strapi.fetchBlogPosts().subscribe((data) => {
-      console.log(data);
       this.blogPosts = data.data.map((item: any) => {
         return {
           id: item.id,

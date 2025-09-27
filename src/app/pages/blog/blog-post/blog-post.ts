@@ -4,6 +4,7 @@ import { Strapi } from '../../../services/strapi';
 import { ActivatedRoute } from '@angular/router';
 import { STRAPI_URL } from '../../../app.config';
 import { Loader } from '../../../components/loader/loader';
+import { renderBlock } from 'blocks-html-renderer';
 
 @Component({
   selector: 'app-blog-post',
@@ -47,7 +48,6 @@ export class BlogPost implements OnInit {
     this.strapi
       .fetchBlogPostBySlug(this.activatedRoute.snapshot.params['id'])
       .subscribe((data: any) => {
-        console.log(data.data[0]);
         this.post.id = data.data[0].id;
         this.post.slug = data.data[0].slug;
         this.post.imageUrl = `${this.strapiUrl}${data.data[0].main_image.url}`;
@@ -56,9 +56,8 @@ export class BlogPost implements OnInit {
         this.post.createdAt = new Date(data.data[0].createdAt);
         this.post.title = data.data[0].title;
         this.post.blurb = data.data[0].blurb;
-        this.post.richText = data.data[0].body[0].children[0].text;
+        this.post.richText = renderBlock(data.data[0].body);
 
-        console.log(this.post);
         this.loading = false;
       });
   }

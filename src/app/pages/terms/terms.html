@@ -1,0 +1,8 @@
+<section class="custom-container">
+  @if (loading) {
+  <app-loader size="md"></app-loader>
+  } @if (!loading) {
+  <p>Versie: {{ version | date: 'longDate' }}</p>
+  <div [innerHTML]="voorwaardenContent"></div>
+  }
+</section>

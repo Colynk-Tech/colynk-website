@@ -45,4 +45,26 @@ export class Strapi {
         catchError((err) => this.handleError(err, null, 'blog post ophalen')),
       );
   }
+
+  // Fetch privacy policy
+  fetchPrivacyPolicy(): Observable<any> {
+    return this.http
+      .get(this.strapiUrl + '/api/privacy?populate=*')
+      .pipe(
+        catchError((err) =>
+          this.handleError(err, null, 'privacy policy ophalen'),
+        ),
+      );
+  }
+
+  // Fetch terms and conditions
+  fetchTermsAndConditions(): Observable<any> {
+    return this.http
+      .get(this.strapiUrl + '/api/voorwaarden?populate=*')
+      .pipe(
+        catchError((err) =>
+          this.handleError(err, null, 'terms and conditions ophalen'),
+        ),
+      );
+  }
 }
